@@ -1,60 +1,76 @@
-public class BinarySearchTree {
-class Node
+import java.util.*;
+class BinarySearchTree
 {
-int data;
-Node left,right;
+    static class Node {
+        int key;
+        Node left, right;
+    };
 
-public Node(int data)
-{
-this.data=data;
-left=right=null;
-}
-}
-Node root; 
-    BinarySearchTree() {  
-        root = null;  
-    } 
-    
-    void insert(int data)
-    { 
-     
-    
-    }
-    void inorder()
+    static Node newNode(int data)
     {
-       inorder1(root);
+        Node temp = new Node();
+
+        temp.key = data;
+
+        temp.left = null;
+        temp.right = null;
+
+        return temp;
     }
-    public void inorder1(Node root)
+
+    static Node insert(Node root, int key)
     {
-     if(root!=null)
-      {
-       inorder1(root.left);
-       System.out.print(root.data);
-       inorder1(root.right);
-      }
+
     }
-   public void preorder()
+    static void Inorder(Node root)
     {
-    
+        if(root==null)
+            return;
+        else
+        {
+            Inorder(root.left);
+            System.out.println(root.key+" ");
+            Inorder(root.right);
+
+
+        }
+
     }
-   public void postorder()
+
+    static void Postorder(Node root)
     {
-    
+
+
     }
+
+    static void Preorder(Node root)
+    {
+        if(root==null)
+            return;
+        else
+        {
+            System.out.println(root.key+" ");
+            Preorder(root.left);
+            Preorder(root.right);
+        }
+    }
+
+
     public static void main(String args[])
     {
-    BinarySearchTree b=new BinarySearchTree();
-    b.insert(60); 
-        b.insert(20); 
-        b.insert(10); 
-        b.insert(40); 
-        b.insert(70); 
-        b.insert(60); 
-        b.insert(80);
-        b.inorder();
-        b.preorder();
-        b.postorder();
-        
-    }
 
+        Node root = null;
+        root = insert(root, 50);
+        insert(root, 30);
+        insert(root, 20);
+        insert(root, 40);
+        insert(root, 70);
+        insert(root, 60);
+        insert(root, 80);
+
+        Inorder(root);
+        Postorder(root);
+        Preorder(root);
+
+    }
 }
