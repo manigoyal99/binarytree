@@ -39,8 +39,14 @@ class BinarySearchTree
 
     static void Postorder(Node root)
     {
-
-
+       if(root==null)
+          return;
+       else
+       {
+           Postorder(root.left);
+           Postorder(root.right);
+           System.out.println(root.key+" ");
+       }
     }
 
     static void Preorder(Node root)
